@@ -3,11 +3,11 @@ package com.mycompany.hometask5;
 
 
 public class StringFromInt2 {
-    public static int number =  35; 
+    public static int number =  93; 
 
     public static void main(String[] args) {
-       int x =(int)number/10;
-       int y = (int)number%10;
+       int desiatki =(int)(number/10);
+       int edinici = number%10;
         String res2,res3;
         String result;
         if(number>=0 && number <=9)
@@ -18,13 +18,13 @@ public class StringFromInt2 {
         if (number%10==0)
         {System.out.println(res4(number));}
         else 
-        {System.out.println(res4(x)+""+res2(y));}
+        {System.out.println(res4(desiatki)+" "+res2(edinici));}
 }}
     
    
 public static String res2(int a){
  
-    String res2;
+    String res2="";
                 switch (a){
                 case 0:
                 res2="ноль";
@@ -55,13 +55,12 @@ public static String res2(int a){
                 break;
                 case 9:
                 res2="девять";
-                break;
+                break;}
                 return res2;
             }
-                 
                 
 public static String res3(int a) {
-      String res3;
+      String res3="";
               switch (a){
                 case 10:
                 res3="десять";
@@ -92,41 +91,41 @@ public static String res3(int a) {
                 break;
                 case 19:
                 res3="девятнадцать";
-                break;
+                break;}
                 return res3;}
-}
+
 public static String res4(int a) {
   
-    String res4;
+    String res4="";
               switch (a){
-                case 20:
+                case 2:
                 res4="двадцать";
                 break;
-                case 30:
+                case 3:
                 res4="тридцать";
                 break;
-                case 40:
+                case 4:
                 res4="сорок";
                 break;
-                case 50:
+                case 5:
                 res4="пятдесят";
                 break;
-                case 60:
+                case 6:
                 res4="шестдесят";
                 break;
-                case 70:
+                case 7:
                 res4="семдесят";
                 break;
-                case 80:
+                case 8:
                 res4="восемдесят";
                 break;
-                case 90:
+                case 9:
                 res4="девяносто";
-                break;
+                break;}
                 
                 return res4;}
 }
-}}
+
 
 
              
