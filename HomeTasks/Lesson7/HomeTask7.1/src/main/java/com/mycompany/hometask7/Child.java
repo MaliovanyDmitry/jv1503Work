@@ -13,5 +13,6 @@ static{
     }
     
     public Child(){
+        System.out.println("Child constructor");
     }
 }
