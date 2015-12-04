@@ -12,7 +12,7 @@ package com.mycompany.hometask7;
 public class App {
     public static void main(String[] args) {
         
-        Parent Child = new Parent(100, 200);
+        Parent Child = new Parent();
     }
     
 }

@@ -1,38 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.mycompany.hometask7;
 
-/**
- *
- * @author Надежда
- */
 public class Parent {
-    
-    static int a1;
-    static int b1;
+
+    static{
+        int a = 5;
+        System.out.println("static: a = "+a);
+    }
     
     {
-        a1 = 15;
-        b1 = 30;
+    int b = 10;
+    System.out.println("non static: b = "+b);
     }
     
-    public int e1;
-    public int f1;
-    
-    {
-        e1 = 75;
-        f1 = 90;
+    public Parent(){
     }
     
-    public Parent(int e1, int f1){
-        this.e1 = e1;
-        this.f1 = f1;
-    }
-    
-    
-    
-    
-}
+} 
