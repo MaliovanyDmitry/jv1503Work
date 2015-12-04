@@ -1,6 +1,6 @@
 
 package com.mycompany.hometask6;
-import java.util.*;
+
 /**
  *
  * @author Maliovany Dmitry

@@ -6,7 +6,7 @@ package com.mycompany.hometask5;
 public class StringFromInt {
     public static void main(String[] args) {
  
-        int number = 19;
+        int number = 97;
     
         String[] FirstArray = new String[]{"ноль","один","два","три","четыре","пять","шесть","семь","восемь","девять"};
         String[] SecondArray = new String[]{"десять","одинадцать","двенадцать", "тринадцать", "четырнадцать","пятнадцать","шестнадцать","семнадцать","восемнадцать","девятнадцать"};
