@@ -5,7 +5,10 @@ public class App {
     public static void main(String[] args) {
         MyArray testArray = new MyArray();
         
-        testArray.MyArray(10);
+        
+        testArray.CreateArray(20);
+        testArray.PrintArray();
+        testArray.AddIndex(30);
         testArray.PrintArray();
     }
         
