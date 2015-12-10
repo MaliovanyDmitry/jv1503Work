@@ -17,11 +17,6 @@ public abstract class Shape {
             this.y = y;
         }
 
-
-        
-        
-    
-        
         public void setX(int x) {
             this.x = x;
         }

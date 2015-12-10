@@ -1,7 +1,9 @@
 
-package uits.jv1503.hometask7;
+package uits.jv1503.hometask9;
+
 import java.util.Arrays;
-public class App{
+
+public class App {
     public static void main(String[] args) {
         MyArray testArray = new MyArray();
         for(int i = 0; i<10; i++){
@@ -15,14 +17,11 @@ public class App{
             Object l = new Integer(i*3);
             testArray.put(l);
         }
+        Arrays.sort(MyArray.array);
         for(int i = 0; i < testArray.length(); i++){
         System.out.println(testArray.get(i));}
-//        Arrays.sort(MyArray.array);
+
         
         }
-        
-    }
-
     
-    
-
+}

@@ -1,7 +1,7 @@
 
-package uits.jv1503.hometask7;
+package uits.jv1503.hometask9;
 
-public class MyArray implements Comparable<Object>{
+public class MyArray {
     public static Object[] array;
     
     public MyArray(){
@@ -46,14 +46,6 @@ public class MyArray implements Comparable<Object>{
         return array.length;
     }
     
-    public void addObjArr(Object l){
-        
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        return compareTo(o);
-    }
-}
     
-   
+    
+}
