@@ -17,17 +17,17 @@ public class App {
 //            Object l = new Integer(i*3);
 //            testArray.put(l);
 //        }
-//        Arrays.sort(MyArray.array);
+////        Arrays.sort(MyArray.array);
 //        for(int i = 0; i < testArray.length(); i++){
 //        System.out.println(testArray.get(i));}
-         MyArray testArray = new MyArray();
+        MyArray testArray = new MyArray();
         for(int i = 0; i<10; i++){
-            Object o = new Integer(i*5);
-            testArray.put(o);
+            Cars[] car = new Cars();
+            testArray.put(car.weight);
         }
-MyArray test2 = new MyArray();
-for(int i = 0; i<10; i++)
-System.out.println(testArray.get(i));
+        
+        
+        
         
     }
     

@@ -2,7 +2,7 @@
 package uits.jv1503.hometask9;
 
 public class MyArray {
-    public static Object[] array;
+    private Object[] array;
     
     public MyArray(){
         array = new Object[1];
