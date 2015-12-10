@@ -2,14 +2,18 @@
 package uits.jv1503.hometask9;
 
 public class Cars {
-    public String name;
-    public String color;
-    public int weight;
+    private String name;
+    private String color;
+    private int weight;
 
     public Cars(String name, String color, int weight) {
         this.name = name;
         this.color = color;
         this.weight = weight;
+    }
+
+    Cars() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getColor() {
@@ -35,6 +39,10 @@ public class Cars {
     public void setWeight(int weight) {
         this.weight = weight;
     }
+
+    
+
+    
 
     
     
