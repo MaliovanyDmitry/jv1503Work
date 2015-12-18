@@ -12,9 +12,9 @@ public class Cars {
         this.weight = weight;
     }
 
-    Cars() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    Cars() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
     public String getColor() {
         return color;
