@@ -39,7 +39,7 @@ public class App {
     static Comparator<Tickets> sort = new Comparator<Tickets>() {
         @Override
         public int compare(Tickets o1, Tickets o2) {
-            if (null != sortKey) switch (sortKey) {
+            switch (sortKey) {
                 case "priority":
                     return o1.priority.compareTo(o2.priority);
                 case "client":
@@ -53,8 +53,7 @@ public class App {
             }
         }
     };
-    
-    
+
 }
     
 
