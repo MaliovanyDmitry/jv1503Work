@@ -6,32 +6,34 @@ import java.util.Map;
 
 public class JSONObject {
     
-private String key;
-private String s1;
-private String string = null;
-private Object o1;    
+private HashMap<String, Object> values; 
     
-    public JSONObject(String key, String s1) {
-        this.key = key;
-        this.s1 = s1;
-        Map<String, String> hashmap = new HashMap<String, String>();
-        hashmap.put(key, s1);
-        //this.string = "";
-        for (Map.Entry f1: hashmap.entrySet()){
-            this.string = ("\"" + f1.getKey() + "\":" + "\"" + f1.getValue() + "\"");
+    public JSONObject(){
+        values = new HashMap();
     }
-        System.out.println(string);
+    public void put(String key, Object value){
+        values.put(key, value);
     }
-
-    public JSONObject(String key, Object o1) {
-        this.key = key;
-        this.o1 = o1;
-        Map<String, Object> hashmap = new HashMap<String, Object>();
-        hashmap.put(key, s1);
-        for (Map.Entry f1: hashmap.entrySet()){
-            this.string = ("\"" + f1.getKey() + "\":" + "\"" + f1.getValue() + "\"");
+    
+    public String getJSONString(){
+        String res = "{";
+        for(Map.Entry entry: values.entrySet()){
+            res += entry.getKey()+ ":"; 
+            if(entry.getValue() instanceof String){
+               res += ("\"" + entry.getValue() + "\", ");
+            }else{
+                if(entry.getValue() instanceof Integer){
+                    res += (entry.getValue() + ", ");
+                }else{
+                    if(entry.getValue() instanceof JSONObject){
+                       res += ((JSONObject)entry.getValue()).getJSONString() + ", "; 
+                    }
+                }
+            }
         }
-        System.out.println(string);
+        res = res.substring(0, res.length()-2);
+        res += "}";
+        return res;
     }
 }
     
