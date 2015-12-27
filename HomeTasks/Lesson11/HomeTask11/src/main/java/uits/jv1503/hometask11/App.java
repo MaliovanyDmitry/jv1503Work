@@ -8,7 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class App {
-    static String sortKey = "priority";
+    
     
     public static void main(String[] args) {
         
@@ -37,8 +37,10 @@ public class App {
     }
     
     static Comparator<Tickets> sort = new Comparator<Tickets>() {
-        @Override
+        String sortKey = "priority";
+        @Override        
         public int compare(Tickets o1, Tickets o2) {
+            
             switch (sortKey) {
                 case "priority":
                     return o1.priority.compareTo(o2.priority);

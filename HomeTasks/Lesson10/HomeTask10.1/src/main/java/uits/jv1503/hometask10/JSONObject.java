@@ -27,6 +27,10 @@ private HashMap<String, Object> values;
                 }else{
                     if(entry.getValue() instanceof JSONObject){
                        res += ((JSONObject)entry.getValue()).getJSONString() + ", "; 
+                    }else{
+                        if(entry.getValue() instanceof JSONArray){
+                            res += "[" + entry.getValue() + "],";
+                        }
                     }
                 }
             }
