@@ -1,6 +1,9 @@
-
-package uits.jv1503.hometask10;
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package uits.jv1503.hometask12;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,20 +17,7 @@ private HashMap<String, Object> values;
     public void put(String key, Object value){
         values.put(key, value);
     }
-//    public void put(String stringJSONobj){//МЕТОД ЖСОН ОБЖ ИЗ СТРОКИ
-//    
-//    String[] array = stringJSONobj.split(":");
-//    String notKey1 = array[0];
-//    String notValue1 = array[1];
-//
-//    String key1 ="\""+ notKey1.replaceAll("\\{","") + "\"";
-//    String value1 = notValue1.replaceAll("\\}","");
-//    String value2 = value1.replaceAll("\"","");
-//    String value = value2.replaceAll(" ","");
-//    values.put(key1, value);
-//    }
-    
-    
+   
     public String getJSONString(){
         String res = "{";
         for(Map.Entry entry: values.entrySet()){
@@ -52,16 +42,6 @@ private HashMap<String, Object> values;
         res += "}";
         return res;
     }
+
+
 }
-    
-    
-    
-     
-
-
-
-
-    
-    
-    
-
