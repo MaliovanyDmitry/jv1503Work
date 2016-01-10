@@ -9,11 +9,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+
 public class JSONArray {
-    private ArrayList list; 
+    private List list; 
 
     public JSONArray() {
-        list = new ArrayList();
+        list = new ArrayList<Object>();
     }
     public JSONArray (Object[] arr){
         list = new ArrayList();
@@ -41,12 +42,22 @@ public class JSONArray {
     
     public String toString(){
         String result = "[";
+        String t = "";
+        System.out.println(list.size());
         for(final Object o : list){
-            result += o.toString() + ",";
+//            result += o.toString() + ",";
+            t += o.toString() + ",";
         }
-        result = result.substring(0, result.length() - 1);
+        System.out.println(t);
+        result += t.substring(0, t.length() - 1);
         result+="]";
         return result;
+    }
+    
+    public void put(Object o){
+        
+        list.add(o);
+        
     }
     
    

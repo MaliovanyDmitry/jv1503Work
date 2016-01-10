@@ -21,17 +21,15 @@ public class JSONParser {
         if(!s.startsWith("{") && !s.endsWith("}")){
             throw new Exception("ERROR MOTHERFUCKERS!!!!!");
         }
-        String[] parts = s.substring(1, s.length()-2).split(",");
+        String[] parts = s.substring(1, s.length()-1).split(",");
         int current = 0;
+        System.out.println(parts[0]);
         while(current < parts.length){
             String currentPart = parts[current];
             // trim
             //starts with " ? ok : error
             currentPart = currentPart.trim();
             if(!currentPart.startsWith("\"")){
-
-
-
                 throw new Exception("ERROR MOTHERFUCKERS!!!!!");
             }
             String[] subParts = currentPart.split(":");
@@ -42,14 +40,16 @@ public class JSONParser {
             if(!subParts[0].startsWith("\"") &&!subParts[0].endsWith("\"")){
                 throw new Exception("invalid format, missing \"");
             }
-            
+            System.out.println(subParts[0]);
+                    System.out.println(subParts[1]);
             String key;
             //для парсинга ключа
             //берем подстроку из ключа без кавычек и проверяем длину
             //если длина = 0 - ошибка, пустой ключ
             //иначе записываем ключ
-            key = subParts[0].substring(1, subParts[0].length()-2);
-            if ((key.substring(1, key.length()-2)).length() == 0){
+            key = subParts[0].substring(1, subParts[0].length()-1);
+            if (key.length() == 0){
+                System.out.println(key);
                 throw new Exception("this key is NULL");
             } 
             
@@ -58,6 +58,8 @@ public class JSONParser {
             switch(subParts[1].charAt(0)){
                 case '{' :{
                     //парсим как жсон объект
+                    System.out.println("парсим как жсон объект");
+                    System.out.println(subParts[1]);
                     value = (Object)parseObject(subParts[1]);
                     
                 }break;
@@ -66,6 +68,8 @@ public class JSONParser {
                  
                 }break;
                 case '"' : {
+                    System.out.println("парсим как объект");
+                    System.out.println(subParts[1]);
             
                     if(!validatePart(subParts[1].substring(1, subParts[0].length()-2)))
                         throw new Exception("invalid format, missing \"");
@@ -74,7 +78,8 @@ public class JSONParser {
                 }
             }
             
-            
+            System.out.println(key);
+            System.out.println(value);
             newObject.put(key, value);
             current+=1;
         }
@@ -82,6 +87,7 @@ public class JSONParser {
     }
     
     public static JSONArray parseJSONArray(String s)throws Exception{
+        JSONArray array = new JSONArray();
         if(!s.startsWith("[") && !s.endsWith("]")){
             throw new Exception("this construction is not array");  
         }
@@ -90,14 +96,27 @@ public class JSONParser {
         
         for (int i = 0; i < arr.length-1; i++) {
             arr[i] = arr[i].trim();
-            if (arr[i].length()==0) {
-                throw new Exception("this array is invalid"); 
+            char t = arr[i].charAt(0);
+            switch (t){
+//                case '"' : {
+//                    
+//                } break;
+//                case '[' : {
+//                    
+//                } break;
+                case '{' : {
+                    array.put(parseObject(arr[i]));
+                } break;
             }
-            if(arr[i].charAt(0)>='0' && arr[i].charAt(0)<='9'){
-                if(".".indexOf(arr[i]) < 0){
-                    
-                }
-            }
+//            if (arr[i].length()==0) {
+//                throw new Exception("this array is invalid"); 
+//            }
+//            if(arr[i].charAt(0)>='0' && arr[i].charAt(0)<='9'){
+//                if(".".indexOf(arr[i]) < 0){
+//                    
+//                }
+//            }
+        }
        
             
         

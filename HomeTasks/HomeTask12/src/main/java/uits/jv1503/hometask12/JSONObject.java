@@ -17,12 +17,17 @@ private HashMap<String, Object> values;
     public void put(String key, Object value){
         values.put(key, value);
     }
+
+    @Override
+    public String toString() {
+        return this.getJSONString();
+    }
    
     public String getJSONString(){
         String res = "{";
         for(Map.Entry entry: values.entrySet()){
             res += entry.getKey()+ ":"; 
-            if(entry.getValue() instanceof String){
+            if(entry.getValue() instanceof String || entry.getValue() instanceof Object){
                res += ("\"" + entry.getValue() + "\", ");
             }else{
                 if(entry.getValue() instanceof Integer){
@@ -42,6 +47,7 @@ private HashMap<String, Object> values;
         res += "}";
         return res;
     }
+    
 
 
 }
