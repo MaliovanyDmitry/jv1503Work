@@ -1,6 +1,8 @@
 
 package uits.jv1503.task_0;
 
+import java.util.Arrays;
+
 public class App {
     
     public static void main(String[] args) {
@@ -50,6 +52,21 @@ public class App {
         
         selectByDiagnosis(patients, "a");
         selectByMedicalRecordNumber(patients, 40000000, 90000000);
+        
+        Abiturient[] abiturients = new Abiturient[10];
+        abiturients[0] = new Abiturient(0, "dhgdfhhgd", "srhgfhzfg", "zdghzdghzg", "azfghzfghfz", 80564789641L, new byte[]{5,4,3,2,3,4,5});
+        abiturients[1] = new Abiturient(1, "dghdffhhgd", "dryfhzfg", "zdghzdghzg", "azfghzfghfz", 80564789641L, new byte[]{3,4,5,4,5,4,5});
+        abiturients[2] = new Abiturient(2, "jhkfhhgd", "rjrfhzfg", "zdghzdghzg", "azfghzfghfz", 80564789641L, new byte[]{5,5,5,5,4,5,5});
+        abiturients[3] = new Abiturient(3, "Sddfhhgd", "tyufhzfg", "zdghzdghzg", "azfghzfghfz", 80564789641L, new byte[]{4,4,4,4,4,5,4});
+        abiturients[4] = new Abiturient(4, "ryugdfhhgd", "weratfhzfg", "zdghzdghzg", "azfghzfghfz", 80564789641L, new byte[]{4,4,4,4,3,4,4});
+        abiturients[5] = new Abiturient(5, "ahgdfhhgd", "jytgfhzfg", "zdghzdghzg", "azfghzfghfz", 80564789641L, new byte[]{3,3,3,4,3,3});
+        abiturients[6] = new Abiturient(6, "erygdfhhgd", "zzsehzgfhzfg", "zdghzdghzg", "azfghzfghfz", 80564789641L, new byte[]{3,3,3,5,5,4,4,});
+        abiturients[7] = new Abiturient(7, "aegdfhhgd", "strufhzfg", "zdghzdghzg", "azfghzfghfz", 80564789641L, new byte[]{5,4,3,4,5,2,3});
+        abiturients[8] = new Abiturient(8, "wetfhhgd", "srtyfhzfg", "zdghzdghzg", "azfghzfghfz", 80564789641L, new byte[]{2,3,4,3,2,3,2});
+        abiturients[9] = new Abiturient(9, "werthhgd", "trshrtfhzfg", "zdghzdghzg", "azfghzfghfz", 80564789641L, new byte[]{3,2,4,5,4,3,2});
+        
+        selectAbiturientsWithPoorGrades(abiturients);
+        selectAbitWhoSkoreAboutGiven(abiturients, 28);
     }
     //Выборка студентов по факультетам
     public static void selectByFaculty(Student[] students, String faculty){
@@ -128,14 +145,77 @@ public class App {
                 System.out.println(patients[i].toString());
         }
     }
-        
+    
+    public static void selectAbiturientsWithPoorGrades(Abiturient[] abiturients){
+        System.out.println(" ");
+        System.out.println("список абитуриентов, имеющих неудовлетворительные оценки:");
+        for (int i = 0; i < abiturients.length; i++) {
+            for (int j = 0; j < abiturients[i].getRating().length; j++) {
+                if(abiturients[i].getRating()[j] == 2){
+                    System.out.println(abiturients[i].toString());
+                    break;
+                }
+            }
+        }
     }
     
+    public static void selectAbitWhoSkoreAboutGiven(Abiturient[] abiturients, int score){
+        System.out.println(" ");
+        System.out.println("список абитуриентов, у которых средний балл " + score + " и выше:");
+        for (int i = 0; i < abiturients.length; i++) {
+            int summ = 0;
+            for (int j = 0; j < abiturients[i].getRating().length; j++){
+                summ += abiturients[i].getRating()[j];
+                if(summ >= score){
+                    System.out.println(abiturients[i].toString());
+                    break;
+                }    
+            }
+        }
+    }
+    public static void selectAbitHighestScore(Abiturient[] abiturients, int number){
+        System.out.println(" ");
+        System.out.println("список абитуриентов, у которых средний балл и выше:");
+        int[] arr = null;
+        for (int i = 0; i < abiturients.length; i++) {
+            int summ = 0;
+            arr = new int[abiturients[i].getRating().length];
+            for (int j = 0; j < abiturients[i].getRating().length; j++){
+                summ += abiturients[i].getRating()[j];
+                
+            }
+            arr[i] = summ;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            // Массив просматривается с конца до
+            // позиции i и "легкие элементы всплывают"
+            for (int j = arr.length - 1; j > i; j--) {
+                // Если соседние элементы расположены
+                // в неправильном порядке, то меняем
+                // их местами
+                if (arr[j] < arr[j - 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j - 1];
+                    arr[j - 1] = temp;}
+            }
+        }
+        int[] array = new int[abiturients.length];
+        System.arraycopy(arr, 0, array, 0, number);
+        
+          
+                    
+        
+            
+           
+    }
+    
+}
     
     
     
     
-}    
+    
+    
     
 
     
