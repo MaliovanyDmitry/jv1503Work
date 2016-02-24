@@ -1,5 +1,5 @@
 
-package uits.jv1503.task_0;
+package uits.jv1503.task_0.customer;
 
 import java.util.Comparator;
 

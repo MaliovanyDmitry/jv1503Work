@@ -1,5 +1,5 @@
 
-package uits.jv1503.task_0;
+package uits.jv1503.task_0.abiturient;
 
 import java.util.Arrays;
 
@@ -30,7 +30,14 @@ public class Abiturient {
     public String toString() {
         return "Abiturient{" + "id=" + id + ", secondName=" + secondName + ", name=" + name + ", patronymic=" + patronymic + ", adress=" + adress + ", phone=" + phone + ", rating=" + Arrays.toString(rating) + '}';
     }
-
+    
+    public int getMarksSumm(){
+        int summ = 0;
+        for (byte b : rating) {
+            summ += b;
+        }
+        return summ;
+    }
         
     
     public int getId() {
