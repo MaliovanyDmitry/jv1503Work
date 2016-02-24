@@ -52,7 +52,7 @@ public class App {
     public static void getBooksAfterYear(Book[] books, int yearOfPublishing){
         System.out.println(" ");
         System.out.println("c)  список книг, выпущенных после заданного года." + yearOfPublishing);
-        for (int i = 0; i < books.length ; i++) {
+        for (int i = 0; i < books.length; i++) {
             if (books[i].getYearOfPublishing() > yearOfPublishing) {
                 System.out.println(books[i].toString());
             }

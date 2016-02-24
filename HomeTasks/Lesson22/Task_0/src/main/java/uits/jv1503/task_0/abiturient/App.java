@@ -54,7 +54,7 @@ public class App {
     
     public static void selectAbitHighestScore(Abiturient[] abiturients, int number){
       System.out.println(" ");
-      System.out.println("вот это херня:");
+      System.out.println("c)  выбрать заданное число n-абитуриентов, имеющих самую высокую :"+ number );
       for (int j = 0; j < abiturients.length; j++) {
             for (int i = j + 1; i < abiturients.length; i++) { 
                 if (abiturients[i].getMarksSumm() > abiturients[j].getMarksSumm()) { 

@@ -46,7 +46,7 @@ public class App {
     public static void getProductsByStorageLife(Product[] products, int storageLife){
         System.out.println(" ");
         System.out.println("c)  список товаров, срок хранения которых больше заданного" + storageLife);
-        for (int i = 0; i < products.length; i++) {
+        for (int i = 0; i < products.length-1; i++) {
             if (products[i].getStorageLife() > storageLife) {
                 System.out.println(products[i].toString());
             }

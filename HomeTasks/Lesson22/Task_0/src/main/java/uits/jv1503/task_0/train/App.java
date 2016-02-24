@@ -26,7 +26,7 @@ public class App {
     }
     
     public static void getTrainsBydestination(Train[] trains, String destination){
-        System.out.println("список поездов следующих до заданного пункта назначения" + destination);
+        System.out.println("a) список поездов следующих до заданного пункта назначения" + destination);
         for (int i = 0; i < trains.length; i++) {
             if (trains[i].getDestination().equals(destination)) {
                 System.out.println(trains[i].toString());

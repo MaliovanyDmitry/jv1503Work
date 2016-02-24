@@ -29,7 +29,7 @@ public class App {
     public static void selectByDiagnosis(Patient[] patients, String diagnosis){
         System.out.println(" ");
         System.out.println("Список пациентов с диагносом: " + diagnosis);
-        for (int i = 0; i < 10; i++){ 
+        for (int i = 0; i < patients.length; i++){ 
             if(patients[i].getDiagnosis().equals(diagnosis))    
                 System.out.println(patients[i].toString());
         }

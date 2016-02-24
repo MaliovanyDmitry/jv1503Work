@@ -29,7 +29,7 @@ public class App {
             //Выборка студентов по факультетам
     public static void selectByFaculty(Student[] students, String faculty){
         System.out.println("Список студентов факультета " + faculty + ":");
-        for (int i = 0; i < 10; i++){ 
+        for (int i = 0; i < students.length; i++){ 
             if(students[i].getFaculty().equals(faculty))    
                 System.out.println(students[i].toString());
         }
@@ -38,7 +38,7 @@ public class App {
     public static void selectByFacultyAndCourse(Student[] students, String faculty, int course){
         System.out.println(" ");
         System.out.println("Список студентов факультета " + faculty + ","+ course +"-го курса:");
-        for (int i = 0; i < 10; i++){ 
+        for (int i = 0; i < students.length; i++){ 
             if(students[i].getFaculty().equals(faculty) && students[i].getCourse() == course)    
                 System.out.println(students[i].toString());
         }
@@ -47,7 +47,7 @@ public class App {
     public static void selectByYoB(Student[] students, int yob){
         System.out.println(" ");
         System.out.println("Список студентов факультета, родившихся после " + yob + " года:");
-        for (int i = 0; i < 10; i++){ 
+        for (int i = 0; i < students.length; i++){ 
             if(students[i].getYob() >= yob)    
                 System.out.println(students[i].toString());
         }
@@ -56,7 +56,7 @@ public class App {
     public static void selectByGroup(Student[] students, String group){
         System.out.println(" ");
         System.out.println("Список студентов группы: " + group);
-        for (int i = 0; i < 10; i++){ 
+        for (int i = 0; i < students.length; i++){ 
             if(students[i].getGroup().equals(group))    
                 System.out.println(students[i].toString());
         }
