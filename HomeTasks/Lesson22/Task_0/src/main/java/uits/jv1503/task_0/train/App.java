@@ -51,7 +51,7 @@ public class App {
                              "и имеющих общие места." + destination );
         for (int i = 0; i < trains.length; i++) {
             if (trains[i].getDestination().equals(destination) && trains[i].getGeneralSeatsNumber() > 0) {
-                System.out.println(trains[i].toString());
+                System.out.println(trains[i]);
             }
         }
     }
