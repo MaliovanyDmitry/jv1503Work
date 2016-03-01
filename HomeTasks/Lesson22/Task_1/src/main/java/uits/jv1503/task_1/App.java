@@ -4,7 +4,17 @@ package uits.jv1503.task_1;
 public class App {
     public static void main(String[] args) {
 
-        
+        Toy[] newToys = new Toy[10];
+        newToys[0] = new Doll("material", "manufacturer", 2, "name", 1);
+        newToys[1] = new Doll("material", "manufacturer", 2, "name", 2);
+        newToys[2] = new Doll("material", "manufacturer", 2, "name", 3);
+        newToys[3] = new Doll("material", "manufacturer", 2, "name", 4);
+        newToys[4] = new Doll("material", "manufacturer", 2, "name", 5);
+        newToys[5] = new Doll("material", "manufacturer", 2, "name", 6);
+        newToys[6] = new Doll("material", "manufacturer", 2, "name", 7);
+        newToys[7] = new Doll("material", "manufacturer", 2, "name", 8);
+        newToys[8] = new Doll("material", "manufacturer", 2, "name", 9);
+        newToys[9] = new Doll("material", "manufacturer", 2, "name", 10);
 //        Transformer[] transformers = inerTransformers();
 //        Transformer.printAveragePrice(transformers);
 //        Doll[] dolls = inerDolls();
@@ -29,6 +39,8 @@ public class App {
         c.put(new Transformer("material", "manufacturer", 2, "name", 456));
         c.put(new Transformer("material", "manufacturer", 2, "name", 258));
         c.put(new Transformer("material", "manufacturer", 2, "name", 159));
+        c.put(new Transformer("material", "manufacturer", 2, "name", 159));
+        c.putAll(newToys);
         System.out.println("не отсортированный");
         c.printContainer();
         c.sortByPrice();
@@ -61,12 +73,4 @@ public class App {
         dolls[4] = new Doll("material", "manufacturer", 3, "name", 70);
         return dolls;
     }
-    
-    
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone(); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

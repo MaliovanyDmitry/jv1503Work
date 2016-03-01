@@ -11,10 +11,8 @@ public class Container {
     
     public void put(Toy toy){
         if (counter == toys.length) {
-            Toy[] t = new Toy[counter+1];
-            System.arraycopy(toys, 0, t, 0, toys.length);
-            t[counter] = toy;
-            toys = t;
+            arrayExpansion();
+            toys[counter] = toy;
         } else {
             toys[counter] = toy;
         }
@@ -30,8 +28,8 @@ public class Container {
     }
     
     public void sortByPrice(){
-        for (int j = 0; j < toys.length; j++) {
-            for (int i = j + 1; i < toys.length; i++) { 
+        for (int j = 0; j < counter-1; j++) {
+            for (int i = j + 1; i < counter; i++) { 
                 if (toys[j].getPrice() > toys[i].getPrice()) { 
                     Object temp = toys[j];
                     toys[j] = toys[i];
@@ -46,11 +44,18 @@ public class Container {
             System.out.println(toys[i]);
         }
     }
+    
+    public void arrayExpansion(){
+            Toy[] t = new Toy[(3*toys.length)/2];
+            System.arraycopy(toys, 0, t, 0, toys.length);
+            toys = t;
+    }
 
-
-    
-
-    
-    
-    
+    public void putAll(Toy[] newToys){
+        while((toys.length - counter) < newToys.length){
+            arrayExpansion();
+        }
+        System.arraycopy(newToys, 0, toys, counter, newToys.length);
+        counter += newToys.length;    
+    }
 }
