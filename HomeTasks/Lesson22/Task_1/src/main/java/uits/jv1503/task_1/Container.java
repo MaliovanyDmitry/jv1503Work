@@ -20,6 +20,7 @@ public class Container {
     }
     
     public int getCount(){
+        System.out.println(counter);
         return counter;
     }
     

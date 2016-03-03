@@ -16,7 +16,7 @@ public class App {
         newToys[8] = new Doll("material", "manufacturer", 2, "name", 9);
         newToys[9] = new Doll("material", "manufacturer", 2, "name", 10);
 //        Transformer[] transformers = inerTransformers();
-//        Transformer.printAveragePrice(transformers);
+ //       Transformer.printAveragePrice(transformers);
 //        Doll[] dolls = inerDolls();
 //        Doll.printAveragePrice(dolls);
         Container c = new Container();
