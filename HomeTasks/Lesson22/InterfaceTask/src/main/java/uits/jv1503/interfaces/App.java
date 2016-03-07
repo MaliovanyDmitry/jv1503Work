@@ -23,7 +23,7 @@ public class App {
         b.extractAllFruits();
         b.printBag();
         System.out.println(b.getCount());
-        
+        b.summWeight();
         
         
          

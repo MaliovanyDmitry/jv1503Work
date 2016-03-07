@@ -3,14 +3,9 @@ package uits.jv1503.interfaces;
 
 
 
-abstract public class Vegetable implements IPeel{
+abstract public class Vegetable extends Att implements IPeel{
 
-    protected double weight;
-    protected String color;
-    protected boolean ripeness;
-    protected int condition;
-    protected boolean peeled;
-
+   
     public void setWeight(double weight) {
         this.weight = weight;
     }
