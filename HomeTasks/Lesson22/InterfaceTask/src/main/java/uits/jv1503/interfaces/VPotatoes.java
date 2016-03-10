@@ -6,6 +6,12 @@ public class VPotatoes extends Vegetable {
     public VPotatoes(double weight, String color, boolean ripeness, int condition, boolean peeled) {
         super(weight, color, ripeness, condition, peeled);
     }
+
+    public VPotatoes() {
+        super(0, null, false, 0, false);
+    }
+
+    
     
     @Override
     public void peel() {

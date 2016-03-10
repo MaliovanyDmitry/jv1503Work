@@ -3,7 +3,7 @@ package uits.jv1503.interfaces;
 
 public interface IPeeler {
         
-    double peelItem ();
-    double peelItems ();
+    Att peelItem (Att a);
+    Att[] peelItems (Att[] a);
     
 }

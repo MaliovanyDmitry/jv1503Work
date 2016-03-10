@@ -7,6 +7,12 @@ public class VCelery extends Vegetable{
         super(weight, color, ripeness, condition, peeled);
     }
 
+    public VCelery() {
+        super(0, null, false, 0, false);
+    }
+
+    
+
     @Override
     public void peel() {
         if (!peeled) {

@@ -48,6 +48,7 @@ public class Bag {
             System.out.println(bag[index]);
             index++;
         }
+        System.out.println(" ");
         
     }
     
@@ -58,8 +59,8 @@ public class Bag {
         return temp;
     }
     
-    public Object[] extractAll(){
-        Object[] array = new Object[counter];
+    public Att[] extractAll(){
+        Object[] array = new Att[counter];
         for (int i = 0; i < counter; i++) {
             if (bag[i] != null) {
                 array[i] = bag[i];
@@ -67,15 +68,15 @@ public class Bag {
             }
         }
         counter = 0;
-        System.out.println("Вы удалили из корзины: ");
-        for (int i = 0; i < array.length; i++) {
-            System.out.println(array[i]);
-        }
-        return array;
+//        System.out.println("Вы удалили из корзины: ");
+//        for (int i = 0; i < array.length; i++) {
+//            System.out.println(array[i]);
+//        }
+        return (Att[]) array;
     }
     
-    public Object[] extractAllFruits(){
-        Object[] array = new Object[counter];
+    public Att[] extractAllFruits(){
+        Att[] array = new Att[counter];
         Bag fruits = new Bag();
         Bag vegetables = new Bag();
         
@@ -88,11 +89,11 @@ public class Bag {
         }
         this.bag = vegetables.bag;
         this.counter = vegetables.counter;
-        return fruits.extractAll();
+        return (Att[]) fruits.extractAll();
     }
     
-    public Object[] extractAllVegetables(){
-        Object[] array = new Object[counter];
+    public Att[] extractAllVegetables(){
+        Att[] array = new Att[counter];
         Bag fruits = new Bag();
         Bag vegetables = new Bag();
         

@@ -7,6 +7,12 @@ public class VCarrot extends Vegetable {
         super(weight, color, ripeness, condition, peeled);
     }
 
+    public VCarrot() {
+        super(0, null, false, 0, false);
+    }
+
+    
+
     public double getWeight() {
         return weight;
     }

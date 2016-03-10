@@ -63,6 +63,13 @@ public class FApple extends Fruit{
         super(weight, color, ripeness, condition, peeled);
     }
 
+    public FApple() {
+        super(0, null, false, 0, false);
+    }
+    
+    
+    
+
     
     
 
