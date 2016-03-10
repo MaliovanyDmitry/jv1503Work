@@ -27,29 +27,7 @@ public class App {
     public static void main(String[] args) throws IOException, Exception {
         
         start();
-        b.printBag();
-       
-//        b.put(new FOrange(0.5, "color", true, 90, false));
-//        b.put(new FApple(0.5, "color", true, 90, false));
-//        b.put(new FPear(0.5, "color", true, 90, false));
-//        b.put(new FBanana(0.5, "color", true, 90, false));
-//        b.put(new FOrange(0.5, "color", true, 90, false));
-//        b.put(new VCarrot(0.5, "color", true, 90, false));
-//        b.put(new VCelery(0.5, "color", true, 90, false));
-//        b.put(new VOnion(0.5, "color", true, 90, false));
-//        b.put(new VPotatoes(0.5, "color", true, 90, false));
-//        b.put(new VPotatoes(0.5, "color", true, 90, false));
-//       
-//        b.printBag();
-//        System.out.println(b.getCount());
-//        System.out.println(" ");
-//        b.extractAllFruits();
-//        b.printBag();
-//        System.out.println(b.getCount());
-//        b.summWeight();
-        
-        
-         
+    
     }
     static Att start() throws IOException, Exception{
         
@@ -87,26 +65,28 @@ public class App {
                 switch(y){
                     case 1:
                         frutsArr = fp.peelItems((Att[]) b.extractAllFruits());
+                        b.put(frutsArr);
                         start();
                         break;
                     case 2:
                         vegetableArr = fp.peelItems((Att[]) b.extractAllVegetables());
+                        b.put(vegetableArr);
                         start();
                         break;
                     case 3:
-                        fp.cutAll((Att[]) frutsArr);
+                        fp.cutAll((Att[]) b.extractAllFruits());
                         start();
                         break;
                     case 4:
-                        fp.cutAll((Att[]) vegetableArr);
+                        fp.cutAll((Att[]) b.extractAllVegetables());
                         start();
                         break;
                     case 5:
-                        fp.sliceAll((Att[]) frutsArr);
+                        fp.sliceAll((Att[]) b.extractAllFruits());
                         start();
                         break;
                     case 6:
-                        fp.sliceAll((Att[]) vegetableArr);
+                        fp.sliceAll((Att[]) b.extractAllVegetables());
                         start();
                         break;
                     
