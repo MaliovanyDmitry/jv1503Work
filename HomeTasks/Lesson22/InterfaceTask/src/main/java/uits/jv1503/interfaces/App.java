@@ -1,210 +1,221 @@
-
 package uits.jv1503.interfaces;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class App {
     static Bag b = new Bag();
     static FoodProcessor fp = new FoodProcessor();
-    static Object[] frutsArr = new Object[20];
-    static Object[] vegetableArr = new Object[20];
-    /**
-    1.корзина с продуктами
-    * массив овощей
-    * массив фруктов
-    * кухонный комбайн
-    * 
-    * инициализируем корзину
-    * создаем кухонный комбайн
-    * вытягиваем из корзины все овощи и чистим их
-    * чищенные овощи записываем в массив овощей
-    * тоже для фруктов
-    * производим нарезку
-     */
-    public static void main(String[] args) throws IOException, Exception {
-        
-        start();
+    static Scanner sc = new Scanner(System.in);
     
+    public static void main(String[] args) throws IOException, Exception {
+        start();
     }
-    static Att start() throws IOException, Exception{
-        
-        Scanner sc = new Scanner(System.in);
-       Att a = null;
-        System.out.println("Выберите следующее действие:\n"+
-                "1-Положить продукт в корзину.\n"
-                + "2-Вывести в консоль вес корзины.\n" +
-                "3-Вывести в консоль список продуктов, лежащих в корзине.\n" +
-                "4-Использовать кухонный комбайн.");
-        int x = sc.nextInt();
-        switch(x){
-            case 1:
-                a = putInBag();
-                App.b.put(a);
-                start();
-                break;
-            case 2:
-                b.summWeight();
-                start();
-                break;
-            case 3:
-                b.printBag();
-                start();
-                break;
-            case 4:
-                System.out.println("Выберите следующее действие:\n"+
+    static void start() throws IOException, Exception{
+        boolean finish = false;
+        while(!finish){
+            System.out.println("Выберите следующее действие:\n"+
+                    "1-Положить продукт в корзину.\n"+ 
+                    "2-Вывести в консоль вес корзины.\n" +
+                    "3-Вывести в консоль список продуктов, лежащих в корзине.\n" +
+                    "4-Использовать кухонный комбайн.\n"+
+                    "0-Для выхода.");
+            int operation;
+            try{
+                operation = Integer.parseInt(sc.next());
+                switch(operation){
+                    case 0:{
+                        finish = true;
+                    }break;
+                    case 1:{
+                        putInBag();
+                    }break;
+                    case 2:{
+                        printBagWeight();
+                    }break;
+                    case 3:{
+                        b.printBag();
+                    }break;
+                    case 4:{
+                        useFoodMachine();
+                    }break;
+                    default:{
+                        System.out.println("Неверный код операции, повторите снова.");
+                    }
+                }
+            }catch(Exception ex){
+                System.out.println("Неверный код операции, повторите снова.");
+            }
+        }
+    }
+    
+    static void useFoodMachine(){
+        while(true){
+            System.out.println("Выберите следующее действие:\n"+
                         "1-Очистить все фрукты.\n"+ 
                         "2-Очистить все овощи.\n" +
                         "3-Нарезать все фрукты.\n" +
                         "4-Нарезать все овощи.\n" + 
                         "5-Нашинковать все фрукты.\n" +
-                        "6-Нашинковать все овощи.");
-                int y = sc.nextInt();
-                switch(y){
-                    case 1:
-                        frutsArr = fp.peelItems((Att[]) b.extractAllFruits());
-                        b.put(frutsArr);
-                        start();
-                        break;
-                    case 2:
-                        vegetableArr = fp.peelItems((Att[]) b.extractAllVegetables());
-                        b.put(vegetableArr);
-                        start();
-                        break;
-                    case 3:
-                        fp.cutAll((Att[]) b.extractAllFruits());
-                        start();
-                        break;
-                    case 4:
-                        fp.cutAll((Att[]) b.extractAllVegetables());
-                        start();
-                        break;
-                    case 5:
-                        fp.sliceAll((Att[]) b.extractAllFruits());
-                        start();
-                        break;
-                    case 6:
-                        fp.sliceAll((Att[]) b.extractAllVegetables());
-                        start();
-                        break;
-                    
+                        "6-Нашинковать все овощи.\n" +
+                        "0-Для выхода");
+            int operation;
+            try {
+                operation = Integer.parseInt(sc.next());
+                switch(operation){
+                    case 0:{
+                        return;
+                    }
+                    case 1:{
+                        b.put(fp.peelItems(b.extractAllFruits()));
+                    }break;
+                    case 2:{
+                        b.put(fp.peelItems(b.extractAllVegetables()));
+                    }break;
+                    case 3:{
+                        fp.cutAll(b.extractAllFruits());
+                    }break;
+                    case 4:{
+                        fp.cutAll(b.extractAllVegetables());
+                    }break;
+                    case 5:{
+                        fp.sliceAll(b.extractAllFruits());
+                    }break;
+                    case 6:{
+                        fp.sliceAll(b.extractAllVegetables());
+                    }break;
+                    default:{
+                        System.out.println("Неверный код операции, повторите снова.");
+                    }
                 }
+            } catch (Exception e) {
+                System.out.println("Неверный код операции, повторите снова.");
+            }
         }
-        return a;
     }
-    static Att putInBag() throws Exception{
-        
-        Att a = null;
-        Scanner sc1 = new Scanner(System.in);
-        System.out.println("Выберите следующее действие:\n"+
-                "1-Положить в корзину яблоки.\n"
-                + "2-Положить в корзину бананы.\n" +
+    
+    static void putInBag() throws Exception{
+        boolean finish = false;
+        do{
+            System.out.println("Выберите следующее действие:\n"+
+                "1-Положить в корзину яблоки.\n"+ 
+                "2-Положить в корзину бананы.\n" +
                 "3-Положить в корзину апельсины.\n" +
                 "4-Положить в корзину груши.\n" + 
                 "5-Положить в корзину морковь\n"+
                 "6-Положить в корзину лук\n"+
                 "7-Положить в корзину картошку\n"+
-                "8-Положить в корзину сельдерей");
-        int x1 = sc1.nextInt();
-        switch(x1){
-            case 1:
-                a = putApple();
+                "8-Положить в корзину сельдерей\n"+
+                "0-Для выхода.");
+            int operation;
+            try{
+                operation = Integer.parseInt(sc.next());
+                switch(operation){
+                    case 0:{
+                        finish = true;
+                    }break;
+                    case 1:
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                    case 8:{
+                        b.put((Plant) init(operation));
+                    }break;
+                    default:{
+                        System.out.println("Неверный код операции, повторите снова.");
+                    }
+                }
+            }catch(Exception ex){
+                System.out.println("Неверный код операции, повторите снова.");
+            }
+        }while(!finish);
+    }
+    
+    static IPeel init(int operation) throws Exception{
+        double weight;
+        while(true){
+            System.out.println("Введите вес продукта.");
+            try {
+                weight = Double.parseDouble(sc.next());
                 break;
-            case 2:
-                a = putBanana();
-                break;
-            case 3:
-                a = putOrange();
-                break;
-            case 4:
-                a = putPear();
-                break;
-            case 5:
-                a = putCarrot();
-                break;
-            case 6:
-                a = putOnion();
-                break;
-            case 7:
-                a = putPotatoes();
-                break;
-            case 8:
-                a = putCelery();
+            } catch (Exception e) {
+                System.out.println("Введено неверное значение, повторите снова.");
+            }
+        }
+        
+        String color;
+        while(true){
+            System.out.println("Введите цвет продукта.");
+                color = sc.next();
                 break;
         }
         
-        return a;
-    }
-    static FApple putApple() throws Exception{
-        FApple a = new FApple();
-        a = (FApple) inicialisation(a);
-        return a;
-    }
-    static FBanana putBanana() throws Exception{
-        FBanana b = new FBanana();
-        b = (FBanana) inicialisation(b);
-        return b;
-    }
-    static FOrange putOrange() throws Exception{
-        FOrange o = new FOrange();
-        o = (FOrange) inicialisation(o);
-        return o;
-    }
-    static FPear putPear() throws Exception{
-        FPear a = new FPear();
-        a = (FPear) inicialisation(a);
-        return a;
-    }
-    static VCarrot putCarrot() throws Exception{
-        VCarrot a = new VCarrot();
-        a = (VCarrot) inicialisation(a);
-        return a;
-    }
-    static VCelery putCelery() throws Exception{
-        VCelery a = new VCelery();
-        a = (VCelery) inicialisation(a);
-        return a;
-    }
-    static VOnion putOnion() throws Exception{
-        VOnion a = new VOnion();
-        a = (VOnion) inicialisation(a);
-        return a;
-    }
-    static VPotatoes putPotatoes() throws Exception{
-        VPotatoes a = new VPotatoes();
-        a = (VPotatoes) inicialisation(a);
-        return a;
-    }
-    static Att inicialisation(Att a) throws Exception{
-        Scanner sc1 = new Scanner(System.in);
+        boolean ripeness;
+        while(true){
+            System.out.println("Спелый продукт или нет? y/n");
+            try {
+                String t = sc.next();
+                if ("y".equalsIgnoreCase(t)) {
+                    ripeness = true;
+                    break;
+                } else if ("n".equalsIgnoreCase(t)){
+                    ripeness = false;
+                    break;
+                } else
+                    System.out.println("Введено неверное значение, повторите снова.");
+            } catch (Exception e) {
+                System.out.println("Введено неверное значение, повторите снова.");
+            }
+        }
         
-        System.out.println("Введите вес продукта.");
-        a.weight = sc1.nextDouble();
- 
-        System.out.println("Введите цвет продукта.");
-        a.color = sc1.next();  
-
-        System.out.println("Спелый продукт или нет? y/n");
-        String str = sc1.next();   
-        if ("y".equals(str)) {
-            a.ripeness = true;
-        } else if("n".equals(str)){
-            a.ripeness = false;  
-        } else throw new Exception("Вы ввели не правильное значение.");
+        int condition;
+        while(true){
+            System.out.println("Введите качество продукта(от 0 до 10).");
+            try {
+                condition = Integer.parseInt(sc.next());
+                if (condition >= 0 && condition <= 10) {
+                    break;
+                } else {
+                   System.out.println("Введено неверное значение, повторите снова."); 
+                }
+            } catch (Exception e) {
+                System.out.println("Введено неверное значение, повторите снова.");
+            }
+        }
         
-        System.out.println("Введите качество продукта(от 0 до 10).");
-        a.condition = sc1.nextInt();   
-        
-        System.out.println("Очищен продукт или нет? y/n");
-        String str2 = sc1.next();   
-        if ("y".equals(str2)) {
-            a.peeled = true;
-        } else if("n".equals(str2)){
-            a.peeled = false;  
-        } else throw new Exception("Вы ввели не правильное значение.");
-        
-        return a;
+        switch(operation){
+            case 1:{
+                return new FApple(weight, color, ripeness, condition, false);
+            }
+            case 2:{
+                return new FBanana(weight, color, ripeness, condition, false);
+            }
+            case 3:{
+                return new FOrange(weight, color, ripeness, condition, false);
+            }
+            case 4:{
+                return new FPear(weight, color, ripeness, condition, false);
+            }
+            case 5:{
+                return new VCarrot(weight, color, ripeness, condition, false);
+            }
+            case 6:{
+                return new VOnion(weight, color, ripeness, condition, false);
+            }
+            case 7:{
+                return new VPotatoes(weight, color, ripeness, condition, false);
+            }
+            case 8:{
+                return new VCelery(weight, color, ripeness, condition, false);
+            }
+        }
+        return null;
+    }
+    
+    static void printBagWeight(){
+        System.out.println("Вес корзины составляет: " + b.summWeight());
     }
 }

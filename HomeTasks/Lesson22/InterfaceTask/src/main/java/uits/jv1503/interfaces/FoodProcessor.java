@@ -4,7 +4,7 @@ package uits.jv1503.interfaces;
 public class FoodProcessor implements ICutter, IPeeler, ISlicer{
 
     @Override
-    public double cut(Att a){
+    public double cut(Plant a){
         if (!a.peeled) {
             throw new IllegalArgumentException("This is not peeled!");
         }
@@ -13,7 +13,7 @@ public class FoodProcessor implements ICutter, IPeeler, ISlicer{
     }
 
     @Override
-    public double cutAll(Att[] a) {
+    public double cutAll(Plant[] a) {
         double summWeight = 0.0;
         for (int i = 0; i < a.length; i++) {
             if (!a[i].peeled) {
@@ -22,12 +22,12 @@ public class FoodProcessor implements ICutter, IPeeler, ISlicer{
             a[i].weight = a[i].weight * 0.98;
             summWeight += a[i].weight;
         }
-        System.out.println("Вес нашинкованных продуктов составляет: " + summWeight);
+        System.out.println("Вес нарезанных продуктов составляет: " + summWeight);
         return summWeight;
     }
 
     @Override
-    public Att peelItem(Att a) {
+    public Plant peelItem(Plant a) {
         if (!a.peeled) {
             a.weight*= 0.95;
             a.peeled = true;
@@ -36,8 +36,8 @@ public class FoodProcessor implements ICutter, IPeeler, ISlicer{
     }
 
     @Override
-    public Att[] peelItems(Att[] a) {
-        Att[] peeledA = new Att[a.length];
+    public Plant[] peelItems(Plant[] a) {
+        Plant[] peeledA = new Plant[a.length];
         for (int i = 0; i < a.length; i++) {
             if (!a[i].peeled) {
                 a[i].weight*= 0.95;
@@ -49,7 +49,7 @@ public class FoodProcessor implements ICutter, IPeeler, ISlicer{
     }
 
     @Override
-    public double slice(Att a) {
+    public double slice(Plant a) {
         if (!a.peeled) {
             throw new IllegalArgumentException("This is not peeled!");
         }
@@ -58,7 +58,7 @@ public class FoodProcessor implements ICutter, IPeeler, ISlicer{
     }
 
     @Override
-    public double sliceAll(Att[] a) {
+    public double sliceAll(Plant[] a) {
         double summWeight = 0.0;
         for (int i = 0; i < a.length; i++) {
             if (!a[i].peeled) {
@@ -67,7 +67,7 @@ public class FoodProcessor implements ICutter, IPeeler, ISlicer{
             a[i].weight = a[i].weight * 0.98;
             summWeight += a[i].weight;
         }
-        System.out.println("Вес нарезанных продуктов составляет: " + summWeight);
+        System.out.println("Вес нашинкованных продуктов составляет: " + summWeight);
         return summWeight;
     }
 }
