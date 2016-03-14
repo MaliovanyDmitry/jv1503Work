@@ -47,5 +47,4 @@ abstract public class Plant {
     public void setPeeled(boolean peeled) {
         this.peeled = peeled;
     }
-    
 }
